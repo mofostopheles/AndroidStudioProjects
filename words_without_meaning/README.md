@@ -1,16 +1,9 @@
-# swiping_test
+# Words Without Meaning
 
-A new Flutter application.
+A poetry generator of sorts.
 
-## Getting Started
+## App available in the Google Play Store
 
-This project is a starting point for a Flutter application.
+- [Link to app](https://play.google.com/store/apps/details?id=com.thedamagereport.wordswithoutmeaning&rdid=com.thedamagereport.wordswithoutmeaning)
+- [This app is basically a port this JavaScript generator](https://www.thedamagereport.com/poem-generator/)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
