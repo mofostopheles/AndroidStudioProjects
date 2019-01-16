@@ -148,7 +148,7 @@ class _MainPageState extends State<MainPage> {
                     height: .65,
                   ),
                 ),
-                Text(tmpPattern),
+//                Text(tmpPattern),
               ],
             ),
           ),
@@ -229,9 +229,18 @@ class _MainPageState extends State<MainPage> {
         hi = mid;
       }
     }
-    return min(w / (w / lo).floor(), h / (h / lo).floor());
-  }
 
+    double retVal = 22.0; //some default
+    try{
+      retVal = min(w / (w / lo).floor(), h / (h / lo).floor());
+    }
+    catch(e)
+    {
+      print("had a problem getting width of screen.");
+    }
+
+    return retVal;
+  }
 
   void pageChanged(int pPageNumber) {
     print("page number: " + pPageNumber.toString());
