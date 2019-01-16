@@ -15,6 +15,18 @@ class Pronouns
     "who",
   ];
 
+  static var subjectivePronouns2 = [
+    "I",
+    "you",
+    "thy",
+    "thou",
+    "thee",
+    "he",
+    "she",
+    "we",
+    "they",
+  ];
+
   static var personalPronouns = [
     "I",
     "you",
@@ -31,6 +43,23 @@ class Pronouns
     "her",
     "us",
     "them",
+  ];
+
+  static var personalPronouns2 = [
+    "I",
+    "you",
+    "they",
+    "thoust",
+    "You seem to",
+    "We seem to be",
+    "We are suffering because we",
+    "Clearly, we",
+    "They look like they",
+    "Those dogs in that kennel look like they",
+    "Did you know, you",
+    "Did you know that I stole your car and you",
+    "This app is broke, and you",
+    "Hey! They",
   ];
 
   static var objectivePronouns = [

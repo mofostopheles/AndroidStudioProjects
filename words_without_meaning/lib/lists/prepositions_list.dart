@@ -4,6 +4,7 @@ class PrepositionsList
         [
           "of",
           "with",
+          "inside",
           "at",
           "from",
           "into",
@@ -61,6 +62,7 @@ class PrepositionsList
       "upon",
       "concerning",
       "like",
+      "inside",
       "before",
       "between",
       "after",

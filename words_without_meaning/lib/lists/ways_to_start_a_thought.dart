@@ -9,6 +9,7 @@ class WaysToStartAThought
     "As a result",
     "As a rule",
     "As an illustration",
+    "Initially",
     "As usual",
     "As well as",
     "Assuredly",
@@ -36,6 +37,7 @@ class WaysToStartAThought
     "Generally speaking",
     "Granted",
     "Hence",
+    "Lately",
     "However",
     "However,",
     "I reckon",
@@ -73,6 +75,7 @@ class WaysToStartAThought
     "Particularly",
     "Presumably, this means",
     "Rather",
+    "Most recently",
     "Remember,",
     "Similarly",
     "Since",
@@ -95,6 +98,24 @@ class WaysToStartAThought
     "Whereas",
     "Wherefore",
     "Yet,",
+  ];
+
+  static var greatOpenings =
+  [
+    "Throughout the ages",
+    "Since the dawn of time",
+    "By chance",
+    "In the beginning",
+    "For generations",
+    "Behold",
+    "For you are #stateOfExistence",
+    "As for now",
+    "Time after time",
+    "For you",
+    "For a long time",
+    "It has always been said",
+    "Born and raised by #groupsOfAnimalsOrPeople",
+    "Born and raised in the #landsAndEmpires",
 
   ];
 }
