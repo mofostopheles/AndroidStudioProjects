@@ -11,6 +11,7 @@ import 'package:words_without_meaning/lists/ways_to_start_a_thought.dart';
 import 'package:words_without_meaning/lists/particles_list.dart';
 import 'package:words_without_meaning/lists/names_list.dart';
 import 'package:words_without_meaning/lists/adverbs_list.dart';
+import 'package:words_without_meaning/lists/book_of_slang.dart';
 
 class TextSequenceGenerator {
   static String getSequencedPair() {
@@ -36,7 +37,7 @@ class TextSequenceGenerator {
     var tmpString = "";
     var tmpSubject = "";
     var tmpPunct = "";
-    var randInt = TextListManager.getRandFromRange(11);
+    var randInt = TextListManager.getRandFromRange(14);
 
     //randomly select a sentence pattern
 //    randInt = 11;
@@ -148,20 +149,20 @@ class TextSequenceGenerator {
             "\n\n" +
             TextListManager.getAdjective() +
             " " +
-            TextListManager.getNoun() +
-            "\n\n" +
-            "Brought to you by " +
-            TextListManager.getConcept() +
-            " " +
-            TextListManager.getRandomIncorporation();
+            TextListManager.getNoun();
+//            "\n\n" +
+//            "#sponsoredBy " +
+//            TextListManager.getConcept() +
+//            " " +
+//            TextListManager.getRandomIncorporation();
         break;
       case 3:
-        tmpString = TextListManager.getNoun() + " " + TextListManager.getNoun();
+        tmpString = TextListManager.getNoun() + "\n" + TextListManager.getNoun();
         break;
       case 4:
         tmpString = TextListManager.getNoun() +
-            TextListManager.randomMakePlural() +
-            " of " +
+            TextListManager.randomMakePlural() + "\n" +
+            "of" + "\n" +
             TextListManager.getNoun();
         break;
       case 5:
@@ -253,28 +254,26 @@ class TextSequenceGenerator {
 
       case 9:
         tmpString = TextListManager.getNoun() +
-            TextListManager.randomMakePlural() +
-            " of " +
+            TextListManager.randomMakePlural() + "\n" +
+            "of\n" +
             TextListManager.getConcept();
         break;
 
       case 10:
         // it boils down to this: the truth is a lie
-        tmpString = "Brought to you by " +
+        tmpString = "#sponsoredBy" + "\n" +
             TextListManager.getConcept() +
-            " " +
+            "\n" +
             TextListManager.getRandomIncorporation();
         break;
-
       case 11:
-        // you have a case of the belches...
-        tmpString = TextListManager.getPersonalPronoun2() +
-            " have a case of the " +
-            TextListManager.getStrangeGroupsOfPeople() +
-            " " +
-            TextListManager.getRandomConceptOrSomething() +
-            " " +
-            TextListManager.getMalady();
+        tmpString = TextListManager.getEntryFromBookOfSlang();
+        break;
+      case 12:
+        tmpString = TextListManager.getEntryFromBookOfSlang();
+        break;
+      case 13:
+        tmpString = TextListManager.getEntryFromBookOfSlang();
         break;
     }
 
@@ -287,10 +286,20 @@ class TextSequenceGenerator {
 
   static String scrubGrammar(String pString) {
     // hashtag content replacement ------------------------------------------------------
-    pString = pString.replaceAll("#noun", TextListManager.getNoun());
+    var tmpNoun = TextListManager.getNoun();
+    pString = pString.replaceAll("#noun", tmpNoun);
+    pString = pString.replaceAll("#newNoun", TextListManager.getNoun());
+    pString = pString.replaceAll("#2newNoun", TextListManager.getNoun());
     pString = pString.replaceAll(
         "#possessivePronouns2", TextListManager.getPossessivePronouns2());
+
+    pString = pString.replaceAll(
+        "#possessivePronouns", TextListManager.getPossessivePronouns());
+
+
     pString = pString.replaceAll("#adjective", TextListManager.getAdjective());
+    pString = pString.replaceAll("#2adjective", TextListManager.getAdjective());
+    pString = pString.replaceAll("#3adjective", TextListManager.getAdjective());
     pString = pString.replaceAll(
         "#stateOfExistence", TextListManager.getStateOfExistence());
     pString = pString.replaceAll("#adverb2", TextListManager.getAdverb2());
@@ -300,6 +309,32 @@ class TextSequenceGenerator {
         "#landsAndEmpires", TextListManager.getLandsAndEmpires());
     pString = pString.replaceAll("#groupsOfAnimalsOrPeople",
         TextListManager.getGroupsOfAnimalsOrPeople());
+    pString = pString.replaceAll("#sponsoredBy",
+        TextListManager.getSponsorIntro());
+    pString = pString.replaceAll("#athletics",
+        TextListManager.getAthletics());
+
+    var tmpVerb = TextListManager.getVerb();
+    pString = pString.replaceAll("#verb", tmpVerb);
+    pString = pString.replaceAll("#timeAdverb", TextListManager.getTimeAdverb());
+    pString = pString.replaceAll("#name", TextListManager.getName());
+    pString = pString.replaceAll("#stateOfExistence", TextListManager.getStateOfExistence());
+    pString = pString.replaceAll("#repeatVerb", tmpVerb);
+    pString = pString.replaceAll("#repeatNoun", tmpNoun);
+    pString = pString.replaceAll("#concept", TextListManager.getConcept());
+    pString = pString.replaceAll("#2intensivePronouns", TextListManager.getIntensivePronouns2());
+    pString = pString.replaceAll("#subjectivePronouns", TextListManager.getSubjectivePronoun());
+    pString = pString.replaceAll("#2subjectivePronouns", TextListManager.getSubjectivePronoun2());
+    pString = pString.replaceAll("#convertedAdjective", TextListManager.getConvertedAdjective());
+    pString = pString.replaceAll("#2convertedAdjective", TextListManager.getConvertedAdjective());
+    pString = pString.replaceAll("#3convertedAdjective", TextListManager.getConvertedAdjective());
+
+    pString = pString.replaceAll("#2ndAdjective", TextListManager.getAdjective());
+    pString = pString.replaceAll("#personalPronouns", TextListManager.getPersonalPronoun());
+    pString = pString.replaceAll("#2personalPronouns", TextListManager.getPersonalPronoun2());
+
+    pString = pString.replaceAll("to were", "to have been");
+    pString = pString.replaceAll("be were", "have been");
 
     // grammar errors -------------------------------------------------------------------
 
@@ -427,6 +462,11 @@ class TextListManager {
     }
   }
 
+  static getConvertedAdjective()
+  {
+    return Adverbs.convertedAdjective();
+  }
+
   static getRandomPossessive() {
     if (getRandFromRange(12) % 3 == 0) {
       return "’s";
@@ -472,6 +512,11 @@ class TextListManager {
     return Nouns.concepts[getRandFromRange(Nouns.concepts.length)];
   }
 
+  static getTimeAdverb() {
+    return Adverbs.timeAdverbs[getRandFromRange(Adverbs.timeAdverbs.length)];
+  }
+
+
   static getAbstractActivity() {
     return Nouns
         .abstractActivities[getRandFromRange(Nouns.abstractActivities.length)];
@@ -479,6 +524,10 @@ class TextListManager {
 
   static getVerb() {
     return Verbs.verbs[getRandFromRange(Verbs.verbs.length)];
+  }
+
+  static getSponsorIntro() {
+    return WaysToStartAThought.sponsorIntros[getRandFromRange(WaysToStartAThought.sponsorIntros.length)];
   }
 
   static getVerbPastTense() {
@@ -489,6 +538,13 @@ class TextListManager {
     return Verbs
         .verbsOfFinality[getRandFromRange(Verbs.verbsOfFinality.length)];
   }
+
+
+  static getAthletics() {
+    return Nouns.athletics[getRandFromRange(Nouns.athletics.length)];
+  }
+
+
 
   static getLandsAndEmpires() {
     return Nouns
@@ -517,6 +573,11 @@ class TextListManager {
   static getSubjectivePronoun() {
     return Pronouns.subjectivePronouns[
         getRandFromRange(Pronouns.subjectivePronouns.length)];
+  }
+
+  static getEntryFromBookOfSlang() {
+    return BookOfSlang.patterns[
+    getRandFromRange(BookOfSlang.patterns.length)];
   }
 
   static getSubjectivePronoun2() {
@@ -586,6 +647,11 @@ class TextListManager {
   static getIntensivePronouns() {
     return Pronouns
         .intensivePronouns[getRandFromRange(Pronouns.intensivePronouns.length)];
+  }
+
+  static getIntensivePronouns2() {
+    return Pronouns
+        .intensivePronouns2[getRandFromRange(Pronouns.intensivePronouns2.length)];
   }
 
   static getReciprocalPronouns() {

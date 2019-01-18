@@ -153,6 +153,14 @@ class Pronouns
     "herself",
   ];
 
+  static var intensivePronouns2 =
+  [
+    "itself",
+    "himself",
+    "ourselves",
+    "herself",
+  ];
+
   static var reciprocalPronouns = [
     "Each other",
     "one another",
@@ -194,4 +202,5 @@ class Pronouns
     "much",
     "such",
   ];
+
 }

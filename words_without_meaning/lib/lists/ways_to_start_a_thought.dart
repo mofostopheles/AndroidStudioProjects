@@ -1,7 +1,5 @@
-class WaysToStartAThought
-{
-  static var waysToStartAThought =
-  [
+class WaysToStartAThought {
+  static var waysToStartAThought = [
     "Above all",
     "Again",
     "Also",
@@ -100,8 +98,7 @@ class WaysToStartAThought
     "Yet,",
   ];
 
-  static var greatOpenings =
-  [
+  static var greatOpenings = [
     "Throughout the ages",
     "Since the dawn of time",
     "By chance",
@@ -111,11 +108,33 @@ class WaysToStartAThought
     "For you are #stateOfExistence",
     "As for now",
     "Time after time",
+    "As of this moment",
+    "Now and forever",
+    "For now is but a fleeting moment",
+    "As of this moment and forever on",
     "For you",
     "For a long time",
     "It has always been said",
     "Born and raised by #groupsOfAnimalsOrPeople",
     "Born and raised in the #landsAndEmpires",
+  ];
 
+  static var sponsorIntros = [
+    "brought to you by",
+    "this message paid for by",
+    "Proudly served to you by",
+    "sponsored by",
+    "Paid for by somebody calling themselves",
+    "paid for by greedy politicians",
+    "Paid for by",
+    "This message not authorized by",
+    "This message not paid for by",
+    "Authored by",
+    "Inspired by",
+    "these words written by",
+    "these words by",
+    "this message transmitted by",
+    "this pearl of wisdom came from",
+    "nobody said it better than",
   ];
 }
