@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
 
 class CustomMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: 'Words Without Meaning',
       theme: ThemeData(primarySwatch: Colors.grey, fontFamily: _fontName),
@@ -91,6 +90,36 @@ class DotsIndicator extends AnimatedWidget {
   }
 }
 
+class TextThing extends Text
+{
+  TextThing(String data) : super(data);
+
+  @override
+  Widget build(BuildContext context) {
+
+    return GestureDetector(
+
+      onTap: () {
+        //final snackBar = SnackBar(content: Text("Tap"));
+        print("nailed it");
+        //Scaffold.of(context).showSnackBar(snackBar);
+      },
+        child:
+        new Text(""),
+    );
+
+//      child: Container(
+//        padding: EdgeInsets.all(12.0),
+//        decoration: BoxDecoration(
+//          color: Theme.of(context).buttonColor,
+//          borderRadius: BorderRadius.circular(8.0),
+//        ),
+//        child: Text('My Button'),
+//      ),
+//    );
+  }
+}
+
 class MainPage extends StatefulWidget {
   MainPage({Key key, this.title}) : super(key: key);
 
@@ -121,8 +150,7 @@ class _MainPageState extends State<MainPage> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     //TODO: change this to prop
-    for (var i = 0; i < 99; i++)
-    {
+    for (var i = 0; i < 99; i++) {
       List<String> tmpList = TextSequenceGenerator.getRandomSequence();
       var tmpPoem = tmpList[0];
       var tmpPattern = tmpList[1];
@@ -138,6 +166,8 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+//                TextThing('asdf'),
+                textThing(tmpPoem, tmpSize, _fontName),
                 Text(
                   tmpPoem,
                   style: new TextStyle(
@@ -157,16 +187,37 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
+  Text textThing(var pPoem, var pSize, var pFontName) {
+    return Text(
+      pPoem,
+      style: new TextStyle(
+        fontFamily: pFontName,
+        letterSpacing: (-1 * (pSize / 12)),
+        fontSize: pSize,
+        fontWeight: FontWeight.bold,
+        height: .65,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     _clearPages();
     _buildList();
+
     return Scaffold(
       body: IconTheme(
         data: IconThemeData(color: _kArrowColor),
         child: Stack(
+
+
           children: <Widget>[
+
+
+
             PageView.builder(
+
+
               onPageChanged: pageChanged,
               physics: new AlwaysScrollableScrollPhysics(),
               controller: _controller,
@@ -174,6 +225,10 @@ class _MainPageState extends State<MainPage> {
                 return _pages[index % _pages.length];
               },
             ),
+
+
+
+
 // uncomment for pagination dots...
 //            Positioned(
 //              bottom: 0.0,
@@ -197,6 +252,7 @@ class _MainPageState extends State<MainPage> {
 //                ),
 //              ),
 //            ),
+
           ],
         ),
       ),
@@ -208,8 +264,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  _generateNewSequence()
-  {
+  _generateNewSequence() {
     setState(() {
       _clearPages();
       _buildList();
@@ -231,11 +286,9 @@ class _MainPageState extends State<MainPage> {
     }
 
     double retVal = 22.0; //some default
-    try{
+    try {
       retVal = min(w / (w / lo).floor(), h / (h / lo).floor());
-    }
-    catch(e)
-    {
+    } catch (e) {
       print("had a problem getting width of screen.");
     }
 

@@ -16,5 +16,7 @@ class BookOfSlang extends GrammarLists
     "#noun, you #verb on with the #adjective #newNoun, real #2adjective like",
     "#2subjectivePronouns #timeAdverb #verb, #convertedAdjective, #2convertedAdjective, or #3convertedAdjective",
     "#subjectivePronouns is a #stateOfExistence #adjective #noun",
+//  But this place, whatever the name is, is putting on airs. All hat, no
+//  horse. All tinsel, no tree. An empty box nicely wrapped.
   ];
 }
