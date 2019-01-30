@@ -2,7 +2,7 @@
 
 A collection of Flutter/Dart apps concerning art, poetry and wisdom. I seek collaborators.
 
-[words_without_meaning now available in Google Play Store](https://play.google.com/store/apps/details?id=com.thedamagereport.wordswithoutmeaning)
+My first flutter/dart app ["words_without_meaning" is now available in Google Play Store](https://play.google.com/store/apps/details?id=com.thedamagereport.wordswithoutmeaning)
 
 ----
 ## Somehow all of this is related to other things I'm working on such as 
