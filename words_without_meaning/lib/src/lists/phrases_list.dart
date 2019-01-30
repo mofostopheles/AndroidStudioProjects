@@ -1,4 +1,4 @@
-import 'package:words_without_meaning/lists/GrammarLists.dart';
+import 'package:words_without_meaning/src/lists/GrammarLists.dart';
 
 class Phrases extends GrammarLists
 {

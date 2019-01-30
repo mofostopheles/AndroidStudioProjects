@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'TextSequenceManager.dart';
+import 'package:words_without_meaning/src/TextSequenceManager.dart';
 
 void main() => runApp(MyApp());
 
@@ -90,35 +90,6 @@ class DotsIndicator extends AnimatedWidget {
   }
 }
 
-class TextThing extends Text
-{
-  TextThing(String data) : super(data);
-
-  @override
-  Widget build(BuildContext context) {
-
-    return GestureDetector(
-
-      onTap: () {
-        //final snackBar = SnackBar(content: Text("Tap"));
-        print("nailed it");
-        //Scaffold.of(context).showSnackBar(snackBar);
-      },
-        child:
-        new Text(""),
-    );
-
-//      child: Container(
-//        padding: EdgeInsets.all(12.0),
-//        decoration: BoxDecoration(
-//          color: Theme.of(context).buttonColor,
-//          borderRadius: BorderRadius.circular(8.0),
-//        ),
-//        child: Text('My Button'),
-//      ),
-//    );
-  }
-}
 
 class MainPage extends StatefulWidget {
   MainPage({Key key, this.title}) : super(key: key);
@@ -154,7 +125,7 @@ class _MainPageState extends State<MainPage> {
       List<String> tmpList = TextSequenceGenerator.getRandomSequence();
       var tmpPoem = tmpList[0];
       var tmpPattern = tmpList[1];
-      print("pattern: " + tmpPattern);
+//      print("pattern: " + tmpPattern);
       var tmpPoemLength = tmpPoem.length;
       var tmpSize = getXWidth(screenWidth, screenHeight, tmpPoemLength);
 
@@ -166,19 +137,7 @@ class _MainPageState extends State<MainPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-//                TextThing('asdf'),
-                textThing(tmpPoem, tmpSize, _fontName),
-                Text(
-                  tmpPoem,
-                  style: new TextStyle(
-                    fontFamily: _fontName,
-                    letterSpacing: (-1*(tmpSize/12)),
-                    fontSize: tmpSize,
-                    fontWeight: FontWeight.bold,
-                    height: .65,
-                  ),
-                ),
-//                Text(tmpPattern),
+                getTextObject(tmpPoem, tmpSize, _fontName),
               ],
             ),
           ),
@@ -187,7 +146,7 @@ class _MainPageState extends State<MainPage> {
     }
   }
 
-  Text textThing(var pPoem, var pSize, var pFontName) {
+  Text getTextObject(var pPoem, var pSize, var pFontName) {
     return Text(
       pPoem,
       style: new TextStyle(
@@ -209,15 +168,8 @@ class _MainPageState extends State<MainPage> {
       body: IconTheme(
         data: IconThemeData(color: _kArrowColor),
         child: Stack(
-
-
           children: <Widget>[
-
-
-
             PageView.builder(
-
-
               onPageChanged: pageChanged,
               physics: new AlwaysScrollableScrollPhysics(),
               controller: _controller,
@@ -225,9 +177,6 @@ class _MainPageState extends State<MainPage> {
                 return _pages[index % _pages.length];
               },
             ),
-
-
-
 
 // uncomment for pagination dots...
 //            Positioned(
@@ -252,7 +201,6 @@ class _MainPageState extends State<MainPage> {
 //                ),
 //              ),
 //            ),
-
           ],
         ),
       ),
@@ -296,6 +244,6 @@ class _MainPageState extends State<MainPage> {
   }
 
   void pageChanged(int pPageNumber) {
-    print("page number: " + pPageNumber.toString());
+//    print("page number: " + pPageNumber.toString());
   }
 }

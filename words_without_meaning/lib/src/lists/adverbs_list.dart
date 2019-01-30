@@ -1,5 +1,5 @@
-import 'package:words_without_meaning/lists/adjectives_list.dart';
-import 'package:words_without_meaning/lists/GrammarLists.dart';
+import 'package:words_without_meaning/src/lists/adjectives_list.dart';
+import 'package:words_without_meaning/src/lists/GrammarLists.dart';
 
 class Adverbs extends GrammarLists
 {

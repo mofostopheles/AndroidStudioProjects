@@ -1,5 +1,5 @@
-import 'package:words_without_meaning/lists/GrammarLists.dart';
-import 'package:words_without_meaning/lists/adjectives_list.dart';
+import 'package:words_without_meaning/src/lists/GrammarLists.dart';
+import 'package:words_without_meaning/src/lists/adjectives_list.dart';
 
 class Nouns extends GrammarLists {
   //all are singular
@@ -26,8 +26,10 @@ class Nouns extends GrammarLists {
     "peroxide",
     "doll",
     "bohemian",
+    "nonsense",
     "dissenter",
     "Yankee",
+    "gibberish",
     "extremist",
     "malcontent",
     "nonconformist",
